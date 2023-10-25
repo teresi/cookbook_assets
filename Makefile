@@ -20,7 +20,7 @@
 
 
 MAKEFLAGS += --no-print-directory
-IMG_MAGICK_FLAGS += -intensity average -colorspace gray -transparent white -fuzz 25%
+IMG_MAGICK_FLAGS += -intensity average -colorspace gray -fuzz 5% -transparent white
 _root_dir := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 ###############################################################################
@@ -37,7 +37,8 @@ clean:                                           ## remove assets
 	rm -rf $(DST)
 
 help:                                            ## show usage
-	@grep -E '^[a-zA-Z^.(]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z^.(]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 $(DST):
 	mkdir -p $(DST)
