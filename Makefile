@@ -54,6 +54,7 @@ $(DST)/%.png : $(SRC)/%.jpg
 
 src/ex_libris_encourage_beautiful.jpg:
 	wget https://www.oldbookillustrations.com/site/assets/high-res/1907/ex-libris-encourage-beautiful-1600.jpg -O $@
+	convert $@ -crop 1059x1490+56+55 $@
 
 src/ex_libris_oil_lamp.jpg:
 	wget https://www.oldbookillustrations.com/site/assets/high-res/1907/ex-libris-oil-lamp-1600.jpg -O $@
